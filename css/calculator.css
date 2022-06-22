@@ -1,0 +1,100 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+#display {
+    grid-row:    1 / 2;
+    grid-column: 1 / 5;
+}
+
+#clearButton {
+    grid-row:    2 / 3;
+    grid-column: 1 / 2;
+}
+
+#divideButton {
+    grid-row:    2 / 3;
+    grid-column: 2 / 3;
+}
+
+#timesButton {
+    grid-row:    2 / 3;
+    grid-column: 3 / 4;
+}
+
+#subtractButton {
+    grid-row:    2 / 3;
+    grid-column: 4 / 5;
+}
+
+#sevenButton {
+    grid-row:    3 / 4;
+    grid-column: 1 / 2;
+}
+
+#eightButton {
+    grid-row:    3 / 4;
+    grid-column: 2 / 3;
+}
+
+#nineButton {
+    grid-row:    3 / 4;
+    grid-column: 3 / 4;
+}
+
+#addButton {
+    grid-row:    3 / 5;
+    grid-column: 4 / 5;
+}
+
+#fourButton {
+    grid-row:    4 / 5;
+    grid-column: 1 / 2;
+}
+
+#fiveButton {
+    grid-row:    4 / 5;
+    grid-column: 2 / 3;
+}
+
+#sixButton {
+    grid-row:    4 / 5;
+    grid-column: 3 / 4;
+}
+
+#oneButton {
+    grid-row:    5 / 6;
+    grid-column: 1 / 2;
+}
+
+#twoButton {
+    grid-row:    5 / 6;
+    grid-column: 2 / 3;
+}
+
+#threeButton {
+    grid-row:    5 / 6;
+    grid-column: 3 / 4;
+}
+
+#equalsButton {
+    grid-row:    5 / 7;
+    grid-column: 4 / 5;
+}
+
+#negativeButton {
+    grid-row:    6 / 7;
+    grid-column: 1 / 2;
+}
+
+#zeroButton {
+    grid-row:    6 / 7;
+    grid-column: 2 / 3;
+}
+
+#dotButton {
+    grid-row:    6 / 7;
+    grid-column: 3 / 4;
+}
