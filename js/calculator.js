@@ -32,11 +32,24 @@ function operate(operator, operand1, operand2) {
 function numberPressed(e) {
     const display = document.querySelector('#display');
     display.textContent += e.target.textContent;
-    displayedOperand = Number(display.textContent);
+    calculatorState.displayedOperand = Number(display.textContent);
+}
+
+function operatorPressed(e) {
+
+}
+
+function equalsPressed(e) {
+
 }
 
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(button =>
-     button.addEventListener('click', numberPressed));
+    button.addEventListener('click', numberPressed));
 
-let displayedOperand;
+const operatorButtons = document.querySelectorAll('.operator');
+operatorButtons.forEach(button =>
+    button.addEventListener('click', operatorPressed));
+
+const equalsButton = document.querySelector('#equalsButton');
+equalsButton.addEventListener('click', equalsPressed);
