@@ -28,3 +28,15 @@ function operate(operator, operand1, operand2) {
             console.error("Unknown Operator");
     }
 }
+
+function numberPressed(e) {
+    const display = document.querySelector('#display');
+    display.textContent += e.target.textContent;
+    displayedOperand = Number(display.textContent);
+}
+
+const numberButtons = document.querySelectorAll('.number');
+numberButtons.forEach(button =>
+     button.addEventListener('click', numberPressed));
+
+let displayedOperand;
