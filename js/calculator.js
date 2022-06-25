@@ -32,7 +32,7 @@ function operate(operator, operand1, operand2) {
 function numberPressed(e) {
     const display = document.querySelector('#display');
     display.textContent += e.target.textContent;
-    calculatorState.displayedOperand = Number(display.textContent);
+    displayedOperand = Number(display.textContent);
 }
 
 function operatorPressed(e) {
