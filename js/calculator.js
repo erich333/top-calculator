@@ -52,6 +52,11 @@ function clearPressed() {
     updateDisplay(displayedNumber);
 }
 
+function negativePressed() {
+    displayedNumber *= -1;
+    updateDisplay(displayedNumber);
+}
+
 function updateDisplay(num) {
     const display = document.querySelector('#display');
     display.textContent = String(num);
@@ -70,6 +75,9 @@ equalsButton.addEventListener('click', equalsPressed);
 
 const clearButton = document.querySelector('#clearButton');
 clearButton.addEventListener('click', clearPressed);
+
+const negativeButton = document.querySelector('#negativeButton');
+negativeButton.addEventListener('click', negativePressed);
 
 let displayedNumber = 0;
 updateDisplay(displayedNumber);
