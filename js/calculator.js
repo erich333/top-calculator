@@ -52,7 +52,7 @@ function clearPressed() {
     updateDisplay(displayedNumber);
 }
 
-function negativePressed() {
+function negatePressed() {
     displayedNumber *= -1;
     updateDisplay(displayedNumber);
 }
@@ -76,8 +76,8 @@ equalsButton.addEventListener('click', equalsPressed);
 const clearButton = document.querySelector('#clearButton');
 clearButton.addEventListener('click', clearPressed);
 
-const negativeButton = document.querySelector('#negativeButton');
-negativeButton.addEventListener('click', negativePressed);
+const negateButton = document.querySelector('#negateButton');
+negateButton.addEventListener('click', negatePressed);
 
 let displayedNumber = 0;
 updateDisplay(displayedNumber);
