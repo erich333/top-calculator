@@ -43,6 +43,11 @@ function equalsPressed(e) {
 
 }
 
+function updateDisplay(num) {
+    const display = document.querySelector('#display');
+    display.textContent = String(num);
+}
+
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(button =>
     button.addEventListener('click', numberPressed));
@@ -53,3 +58,6 @@ operatorButtons.forEach(button =>
 
 const equalsButton = document.querySelector('#equalsButton');
 equalsButton.addEventListener('click', equalsPressed);
+
+let displayedNumber = 0;
+updateDisplay(displayedNumber);
