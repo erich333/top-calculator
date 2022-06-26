@@ -57,6 +57,10 @@ function negatePressed() {
     updateDisplay(displayedNumber);
 }
 
+function dotPressed() {
+    
+}
+
 function updateDisplay(num) {
     const display = document.querySelector('#display');
     display.textContent = String(num);
@@ -78,6 +82,9 @@ clearButton.addEventListener('click', clearPressed);
 
 const negateButton = document.querySelector('#negateButton');
 negateButton.addEventListener('click', negatePressed);
+
+const dotButton = document.querySelector('#dotButton');
+dotButton.addEventListener('click', dotPressed);
 
 let displayedNumber = 0;
 updateDisplay(displayedNumber);
