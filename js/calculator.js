@@ -30,9 +30,13 @@ function operate(operator, operand1, operand2) {
 }
 
 function numberPressed(e) {
-    const display = document.querySelector('#display');
-    display.textContent += e.target.textContent;
-    displayedOperand = Number(display.textContent);
+    if(displayedNumber === 0) {
+        displayedNumber = Number(e.target.textContent);
+    } else {
+        displayedNumber = 
+            Number(String(displayedNumber).concat(e.target.textContent));
+    }
+    updateDisplay(displayedNumber);
 }
 
 function operatorPressed(e) {
@@ -41,6 +45,11 @@ function operatorPressed(e) {
 
 function equalsPressed(e) {
 
+}
+
+function clearPressed() {
+    displayedNumber = 0;
+    updateDisplay(displayedNumber);
 }
 
 function updateDisplay(num) {
@@ -58,6 +67,9 @@ operatorButtons.forEach(button =>
 
 const equalsButton = document.querySelector('#equalsButton');
 equalsButton.addEventListener('click', equalsPressed);
+
+const clearButton = document.querySelector('#clearButton');
+clearButton.addEventListener('click', clearPressed);
 
 let displayedNumber = 0;
 updateDisplay(displayedNumber);
