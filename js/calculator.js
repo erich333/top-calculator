@@ -51,6 +51,8 @@ function equalsPressed(e) {
 function clearPressed() {
     state.activeNumber = 0;
     state.displayedText = '0';
+    state.savedOperator = null;
+    state.savedNumber = null;
     updateDisplay();
 }
 
@@ -99,7 +101,8 @@ dotButton.addEventListener('click', dotPressed);
 const state = {
     activeNumber: 0,
     displayedText: '0',
-    dotPending: false
+    savedOperator: null,
+    savedNumber: null
 };
 
 updateDisplay();
