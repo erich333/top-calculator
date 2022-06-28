@@ -40,6 +40,7 @@ function numberPressed(e) {
         state.activeNumber = 
             Number(String(state.activeNumber) + e.target.textContent);
     }
+    state.displayedText = String(state.activeNumber);
     updateDisplay();
 }
 
@@ -53,20 +54,23 @@ function equalsPressed(e) {
 
 function clearPressed() {
     state.activeNumber = 0;
+    state.displayedText = '0';
     state.dotPending = false;
     updateDisplay();
 }
 
 function negatePressed() {
     state.activeNumber *= -1;
+    state.displayedText = String(activeNumber);
     updateDisplay();
 }
 
 function dotPressed() {
-    displayedNumberString = String(state.activeNumber);
-    if(displayedNumberString.indexOf('.') != -1 || state.dotPending) {
+    if(state.displayedText.indexOf('.') != -1 || 
+       state.displayedText.slice(-1) === '.') {
         return 0;
     } else {
+        state.displayedText += '.';
         state.dotPending = true;
     }
     updateDisplay();
@@ -74,8 +78,7 @@ function dotPressed() {
 
 function updateDisplay() {
     const display = document.querySelector('#display');
-    display.textContent = String(state.activeNumber);
-    if(state.dotPending) display.textContent = display.textContent.concat('.');
+    display.textContent = state.displayedText;
 }
 
 const numberButtons = document.querySelectorAll('.number');
@@ -100,6 +103,7 @@ dotButton.addEventListener('click', dotPressed);
 
 const state = {
     activeNumber: 0,
+    displayedText: '0',
     dotPending: false
 };
 
