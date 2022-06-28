@@ -30,17 +30,17 @@ function operate(operator, operand1, operand2) {
 }
 
 function numberPressed(e) {
-    if(dotPending) {
-        displayedNumber = 
-            Number(String(displayedNumber) + '.' + e.target.textContent);
-        dotPending = false;
-    } else if(displayedNumber === 0) {
-        displayedNumber = Number(e.target.textContent);
+    if(state.dotPending) {
+        state.activeNumber = 
+            Number(String(state.activeNumber) + '.' + e.target.textContent);
+        state.dotPending = false;
+    } else if(state.activeNumber === 0) {
+        state.activeNumber = Number(e.target.textContent);
     } else {
-        displayedNumber = 
-            Number(String(displayedNumber) + e.target.textContent);
+        state.activeNumber = 
+            Number(String(state.activeNumber) + e.target.textContent);
     }
-    updateDisplay(displayedNumber);
+    updateDisplay();
 }
 
 function operatorPressed(e) {
@@ -52,30 +52,30 @@ function equalsPressed(e) {
 }
 
 function clearPressed() {
-    displayedNumber = 0;
-    dotPending = false;
-    updateDisplay(displayedNumber);
+    state.activeNumber = 0;
+    state.dotPending = false;
+    updateDisplay();
 }
 
 function negatePressed() {
-    displayedNumber *= -1;
-    updateDisplay(displayedNumber);
+    state.activeNumber *= -1;
+    updateDisplay();
 }
 
 function dotPressed() {
-    displayedNumberString = String(displayedNumber);
-    if(displayedNumberString.indexOf('.') != -1 || dotPending) {
+    displayedNumberString = String(state.activeNumber);
+    if(displayedNumberString.indexOf('.') != -1 || state.dotPending) {
         return 0;
     } else {
-        dotPending = true;
+        state.dotPending = true;
     }
-    updateDisplay(displayedNumber);
+    updateDisplay();
 }
 
-function updateDisplay(num) {
+function updateDisplay() {
     const display = document.querySelector('#display');
-    display.textContent = String(num);
-    if(dotPending) display.textContent = display.textContent.concat('.');
+    display.textContent = String(state.activeNumber);
+    if(state.dotPending) display.textContent = display.textContent.concat('.');
 }
 
 const numberButtons = document.querySelectorAll('.number');
@@ -98,6 +98,9 @@ negateButton.addEventListener('click', negatePressed);
 const dotButton = document.querySelector('#dotButton');
 dotButton.addEventListener('click', dotPressed);
 
-let displayedNumber = 0;
-let dotPending = false;
-updateDisplay(displayedNumber);
+const state = {
+    activeNumber: 0,
+    dotPending: false
+};
+
+updateDisplay();
