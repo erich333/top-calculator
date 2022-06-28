@@ -30,17 +30,13 @@ function operate(operator, operand1, operand2) {
 }
 
 function numberPressed(e) {
-    if(state.dotPending) {
-        state.activeNumber = 
-            Number(String(state.activeNumber) + '.' + e.target.textContent);
-        state.dotPending = false;
-    } else if(state.activeNumber === 0) {
-        state.activeNumber = Number(e.target.textContent);
+    if(state.displayedText === '0') {
+        state.displayedText = e.target.textContent;
+        state.activeNumber = Number(state.displayedText);
     } else {
-        state.activeNumber = 
-            Number(String(state.activeNumber) + e.target.textContent);
+        state.displayedText += e.target.textContent;
+        state.activeNumber = Number(state.displayedText);
     }
-    state.displayedText = String(state.activeNumber);
     updateDisplay();
 }
 
@@ -55,7 +51,6 @@ function equalsPressed(e) {
 function clearPressed() {
     state.activeNumber = 0;
     state.displayedText = '0';
-    state.dotPending = false;
     updateDisplay();
 }
 
@@ -71,7 +66,6 @@ function dotPressed() {
         return 0;
     } else {
         state.displayedText += '.';
-        state.dotPending = true;
     }
     updateDisplay();
 }
@@ -79,6 +73,7 @@ function dotPressed() {
 function updateDisplay() {
     const display = document.querySelector('#display');
     display.textContent = state.displayedText;
+    console.log(state.activeNumber + ' ' + state.displayedText);
 }
 
 const numberButtons = document.querySelectorAll('.number');
