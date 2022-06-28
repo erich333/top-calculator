@@ -41,11 +41,22 @@ function numberPressed(e) {
 }
 
 function operatorPressed(e) {
-
+    state.savedOperator = e.target.textContent;
+    state.savedNumber = state.activeNumber;
+    state.activeNumber = 0;
+    state.displayedText = '0';
+    updateDisplay();
 }
 
 function equalsPressed(e) {
-
+    if(state.savedOperator && state.savedNumber) {
+        state.activeNumber = operate(state.savedOperator, 
+            state.savedNumber, state.activeNumber);
+        state.displayedText = String(state.activeNumber);
+        state.savedNumber = null;
+        state.savedOperator = null;
+        updateDisplay();        
+    }
 }
 
 function clearPressed() {
