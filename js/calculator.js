@@ -82,7 +82,7 @@ function clearPressed() {
 
 function negatePressed() {
     state.activeNumber *= -1;
-    state.displayedText = String(activeNumber);
+    state.displayedText = String(state.activeNumber);
     updateDisplay();
 }
 
