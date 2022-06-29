@@ -10,6 +10,11 @@
 button {
     border-radius: 15px;
     font-size: x-large;
+    background-color: darkgrey;
+}
+
+.operator {
+    background-color: rgb(87, 87, 253);
 }
 
 #display {
@@ -25,6 +30,7 @@ button {
 #clearButton {
     grid-row:    2 / 3;
     grid-column: 1 / 2;
+    background-color: rgb(114, 41, 41);
 }
 
 #divideButton {
@@ -95,6 +101,7 @@ button {
 #equalsButton {
     grid-row:    5 / 7;
     grid-column: 4 / 5;
+    background-color: green;
 }
 
 #negateButton {
