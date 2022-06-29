@@ -112,6 +112,22 @@ function updateDisplay() {
     display.textContent = state.displayedText;
 }
 
+function keyPressed(e) {
+    switch(e.code) {
+        case 'Backspace':
+            backspacePressed();
+            break;
+        case 'KeyC':
+            clearPressed();
+            break;
+        case 'Enter':
+        case 'NumpadEnter':
+        case 'Equal':
+            equalsPressed();
+            break;
+    }
+}
+
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(button =>
     button.addEventListener('click', numberPressed));
@@ -134,6 +150,8 @@ dotButton.addEventListener('click', dotPressed);
 
 const backspaceButton = document.querySelector('#backspaceButton');
 backspaceButton.addEventListener('click', backspacePressed);
+
+document.addEventListener('keydown', keyPressed);
 
 const MAXDIGITS = 22;
 const state = {
