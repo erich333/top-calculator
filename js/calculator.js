@@ -39,7 +39,7 @@ function numberPressed(e) {
     if(state.displayedText === '0') {
         state.displayedText = e.target.textContent;
         state.activeNumber = Number(state.displayedText);
-    } else {
+    } else if(state.displayedText.length < MAXDIGITS) {
         state.displayedText += e.target.textContent;
         state.activeNumber = Number(state.displayedText);
     }
@@ -121,6 +121,7 @@ negateButton.addEventListener('click', negatePressed);
 const dotButton = document.querySelector('#dotButton');
 dotButton.addEventListener('click', dotPressed);
 
+const MAXDIGITS = 22;
 const state = {
     activeNumber: 0,
     displayedText: '0',
