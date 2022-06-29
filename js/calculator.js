@@ -120,11 +120,6 @@ function keyPressed(e) {
         case 'KeyC':
             clearPressed();
             break;
-        case 'Enter':
-        case 'NumpadEnter':
-        case 'Equal':
-            equalsPressed();
-            break;
     }
 }
 
