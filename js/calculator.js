@@ -96,6 +96,17 @@ function dotPressed() {
     updateDisplay();
 }
 
+function backspacePressed() {
+    if(state.displayedText.length === 1) {
+        state.displayedText = '0';
+        state.activeNumber = 0;
+    } else {
+        state.displayedText = state.displayedText.slice(0,-1);
+        state.activeNumber = Number(state.displayedText);
+    }
+    updateDisplay();
+}
+
 function updateDisplay() {
     const display = document.querySelector('#display');
     display.textContent = state.displayedText;
@@ -120,6 +131,9 @@ negateButton.addEventListener('click', negatePressed);
 
 const dotButton = document.querySelector('#dotButton');
 dotButton.addEventListener('click', dotPressed);
+
+const backspaceButton = document.querySelector('#backspaceButton');
+backspaceButton.addEventListener('click', backspacePressed);
 
 const MAXDIGITS = 22;
 const state = {

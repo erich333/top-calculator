@@ -33,18 +33,24 @@ button {
     background-color: rgb(114, 41, 41);
 }
 
-#divideButton {
+#backspaceButton {
     grid-row:    2 / 3;
     grid-column: 2 / 3;
+    background-color: rgb(114, 41, 41);
 }
 
-#timesButton {
+#divideButton {
     grid-row:    2 / 3;
     grid-column: 3 / 4;
 }
 
-#subtractButton {
+#timesButton {
     grid-row:    2 / 3;
+    grid-column: 4 / 5;
+}
+
+#subtractButton {
+    grid-row:    3 / 4;
     grid-column: 4 / 5;
 }
 
@@ -64,7 +70,7 @@ button {
 }
 
 #addButton {
-    grid-row:    3 / 5;
+    grid-row:    4 / 5;
     grid-column: 4 / 5;
 }
 
