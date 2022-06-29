@@ -35,7 +35,7 @@ function numberPressed(e) {
         state.activeNumber = 0;
         state.displayedText = '0';
     }
-    
+
     if(state.displayedText === '0') {
         state.displayedText = e.target.textContent;
         state.activeNumber = Number(state.displayedText);
@@ -47,7 +47,18 @@ function numberPressed(e) {
 }
 
 function operatorPressed(e) {
-    state.savedOperator = e.target.textContent;
+    if(state.savedNumber !== null && state.savedOperator !== null) {
+        // Execute if the user appears to be chaining operators
+        //   eg 12 + 9 - 5 * 3
+        state.activeNumber = operate(state.savedOperator, 
+            state.savedNumber, state.activeNumber);
+        state.displayedText = String(state.activeNumber);
+        state.savedOperator = e.target.textContent;
+        state.savedNumber = null;
+        updateDisplay();
+    } else {
+        state.savedOperator = e.target.textContent;
+    }
 }
 
 function equalsPressed(e) {
@@ -88,7 +99,7 @@ function dotPressed() {
 function updateDisplay() {
     const display = document.querySelector('#display');
     display.textContent = state.displayedText;
-    console.log(state.activeNumber + ' ' + state.savedNumber);
+    console.log(state.savedNumber + ' ' + state.savedOperator + ' ' + state.activeNumber);
 }
 
 const numberButtons = document.querySelectorAll('.number');
