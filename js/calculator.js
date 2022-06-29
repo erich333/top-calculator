@@ -99,7 +99,6 @@ function dotPressed() {
 function updateDisplay() {
     const display = document.querySelector('#display');
     display.textContent = state.displayedText;
-    console.log(state.savedNumber + ' ' + state.savedOperator + ' ' + state.activeNumber);
 }
 
 const numberButtons = document.querySelectorAll('.number');
